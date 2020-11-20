@@ -108,3 +108,50 @@ preweights.plot.box(color = 'green', title = 'PreWeights 1,2,3 BoxPlot')
 preweights.plot.line()
 ```
 ![line](images/lineplot.png)
+
+# Part 5: Pandas, but make it Geospatial
+First, we need to install a few new libraries: 
+```python
+!pip install geopandas
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from shapely.geometry import Polygon
+from shapely.geometry import Polygon, LineString
+!apt install libspatialindex-dev
+!pip install rtree
+import rtree
+```
+Now, let's bring in the spatial data. I'll be using DBO station point data 
+
+```
+#import polygon data as north polar stereographic and point data 
+dbo = gpd.read_file(root_path+'DBOsites_erased_land.shp', crs = {'init' :'epsg:3413'})
+dbopoint = gpd.read_file(root_path+'dbo1_8_projet.shp', crs = {'init' :'epsg:3476'})
+#reproject into wgs 84
+dbopoint = dbopoint.to_crs('epsg:4326')
+dbo = dbo.to_crs('epsg:4326')
+```
+Now lets get a basemap ready 
+```python
+#get world layer 
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+#create polygon to clip to 
+poly = Polygon([(-180, 50), (-180, 80), (-120, 80), (-120, 50)])
+polygon = gpd.GeoDataFrame([1], geometry=[poly], crs=world.crs)
+#clip world to polygon 
+clipped = gpd.clip(world, polygon)
+fig, ax = plt.subplots(figsize=(12,10))
+clipped.plot(ax=ax, color='gray')
+```
+![alaska basemap](images/basemap.png)
+
+Now add the DBO point data
+```python
+#make the plot
+fig, ax = plt.subplots(figsize=(12, 8))
+dbopoint.plot(ax=ax, color="blue")
+clipped.plot(ax=ax, color="green")
+ax.set_title("DBO Stations", fontsize=20)
+plt.show()
+```
+![dbopoints](images/dbomap.png)
