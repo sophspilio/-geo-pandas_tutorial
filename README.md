@@ -123,7 +123,7 @@ import rtree
 ```
 Now, let's bring in the spatial data. I'll be using DBO station point data 
 
-```
+```python
 #import polygon data as north polar stereographic and point data 
 dbo = gpd.read_file(root_path+'DBOsites_erased_land.shp', crs = {'init' :'epsg:3413'})
 dbopoint = gpd.read_file(root_path+'dbo1_8_projet.shp', crs = {'init' :'epsg:3476'})
