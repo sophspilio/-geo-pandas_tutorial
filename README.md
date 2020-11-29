@@ -131,7 +131,8 @@ dbopoint = gpd.read_file(root_path+'dbo1_8_projet.shp', crs = {'init' :'epsg:347
 dbopoint = dbopoint.to_crs('epsg:4326')
 dbo = dbo.to_crs('epsg:4326')
 ```
-Now lets get a basemap ready 
+Now lets get a basemap ready. 
+Note: I've had some issues working with this clipped data in colab. Sometimes it runs, but most of the time I get errors about `rtree` or `pygeos` although its already imported. If things aren't working, you can try an alternate python IDE. 
 ```python
 #get world layer 
 world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
