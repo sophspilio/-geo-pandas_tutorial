@@ -1,7 +1,7 @@
 # (Geo)Pandas Tutorial
 A quick tutorial for the python libraries pandas and geopandas 🐼
 Created by Sophie Spiliotopoulos for IDCE 30274, Nov 2020
----
+
 In this tutorial, we will walk through reading, manipulating, and plotting data using `pandas`. At the end of the tutorial, there is a quick introduction to working with `geopandas`, the geospatial counterpart to `pandas`. We will make a quick basemap, clip it to the correct coordinates, and plot it with the DBO station point data. 
 
 ### Data 
