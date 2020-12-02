@@ -51,16 +51,22 @@ The next few lines of code are testing out different way to read and your data f
 spm19.head(4)
 ```
 ![spm19.head](images/spm19.head().png)
+Using `.head()` with an index value calls the first four rows, and `.head()` shows us all the column headers. 
+
 ```python
 #check data types for all columns 
 spm19.dtypes 
 ```
 ![spm.dtypes](images/spm19.dtypes().png)
+We can explore the data types using `.dtypes`, which is especially useful if you're planning on doing any kind of math (the data types will have to match). 
+
 ```python
 #find more detailed info on the data 
 spm19.info()
 ```
 ![spm.info](images/spm19.info().png)
+You can get a bit more information about your data frame by using `.info()`. This function goes above and beyond `.dtype()` and will give you a clearer picture of your dataframe. 
+
 ```python
 #descriptive statistics of data frame 
 spm19.describe()
