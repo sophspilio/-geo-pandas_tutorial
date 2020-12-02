@@ -50,17 +50,17 @@ The next few lines of code are testing out different way to read and your data f
 #use .head() to start from the beginning of the data, use .tail() to start at the end 
 spm19.head(4)
 ```
-![spm19.head](spm19.head().png)
+![spm19.head](images/spm19.head().png)
 ```python
 #check data types for all columns 
 spm19.dtypes 
 ```
-![spm.dtypes](spm19.dtypes().png)
+![spm.dtypes](images/spm19.dtypes().png)
 ```python
 #find more detailed info on the data 
 spm19.info()
 ```
-![spm.info](spm19.info().png)
+![spm.info](images/spm19.info().png)
 ```python
 #descriptive statistics of data frame 
 spm19.describe()
